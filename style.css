@@ -1,186 +1,215 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    background:#f8fafc;
+background:#f4f7fb;
 }
 
-/* Navigation */
+/*================ NAVBAR ================*/
 
 header{
-    width:100%;
-    background:#1F2937;
-    position:fixed;
-    top:0;
-    z-index:1000;
+
+position:sticky;
+top:0;
+
+width:100%;
+
+background:#1F2937;
+
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+
+z-index:1000;
+
 }
 
 nav{
-    width:90%;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 0;
+
+width:90%;
+
+margin:auto;
+
+height:80px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
 }
 
+/*============== LOGO =================*/
+
 .logo{
-    color:white;
-    font-size:28px;
-    font-weight:bold;
+
+font-size:32px;
+
+font-weight:bold;
+
+color:white;
+
 }
 
 .logo span{
-    color:#3B82F6;
+
+color:#2563EB;
+
 }
 
-.nav-links{
-    list-style:none;
-    display:flex;
+/*============== MENU =================*/
+
+nav ul{
+
+display:flex;
+
+list-style:none;
+
+gap:15px;
+
 }
 
-.nav-links li{
-    margin-left:30px;
+nav ul li a{
+
+position:relative;
+
+text-decoration:none;
+
+padding:12px 25px;
+
+color:white;
+
+font-size:17px;
+
+font-weight:600;
+
+border-radius:40px;
+
+transition:.4s;
+
 }
 
-.nav-links a{
-    color:white;
-    text-decoration:none;
-    font-size:17px;
-    transition:.3s;
+/* Active */
+
+.active{
+
+background:#2563EB;
+
 }
 
-.nav-links a:hover{
-    color:#3B82F6;
+/* Hover */
+
+nav ul li a:hover{
+
+background:#2563EB;
+
+transform:translateY(-3px);
+
+box-shadow:0 10px 25px rgba(37,99,235,.45);
+
 }
 
-/* Hero */
+/* Animated underline */
 
-.hero{
-    width:90%;
-    margin:auto;
-    min-height:100vh;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding-top:100px;
+nav ul li a::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+bottom:6px;
+
+width:0;
+
+height:2px;
+
+background:white;
+
+transition:.4s;
+
+transform:translateX(-50%);
+
 }
 
-.hero-text{
-    width:55%;
+nav ul li a:hover::after{
+
+width:60%;
+
 }
 
-.hero-text h3{
-    color:#2563EB;
-    font-size:24px;
+/*============== MOBILE =================*/
+
+#check{
+
+display:none;
+
 }
 
-.hero-text h1{
-    font-size:58px;
-    margin:15px 0;
-    color:#1F2937;
-}
+.menu-btn{
 
-.hero-text h2{
-    color:#374151;
-    margin-bottom:20px;
-}
+display:none;
 
-.hero-text p{
-    line-height:28px;
-    color:#555;
-    margin-bottom:30px;
-}
+font-size:28px;
 
-.buttons{
-    margin-bottom:30px;
-}
+color:white;
 
-.btn,.btn2{
-    padding:14px 30px;
-    border-radius:8px;
-    text-decoration:none;
-    margin-right:15px;
-    display:inline-block;
-    font-weight:bold;
-}
+cursor:pointer;
 
-.btn{
-    background:#2563EB;
-    color:white;
 }
-
-.btn:hover{
-    background:#1F2937;
-}
-
-.btn2{
-    border:2px solid #2563EB;
-    color:#2563EB;
-}
-
-.btn2:hover{
-    background:#2563EB;
-    color:white;
-}
-
-.social a{
-    color:#1F2937;
-    font-size:28px;
-    margin-right:20px;
-}
-
-.social a:hover{
-    color:#2563EB;
-}
-
-.hero-image{
-    width:40%;
-    text-align:center;
-}
-
-.hero-image img{
-    width:350px;
-    height:350px;
-    border-radius:50%;
-    object-fit:cover;
-    border:8px solid #2563EB;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
-}
-
-/* Mobile */
 
 @media(max-width:768px){
 
-.hero{
-    flex-direction:column-reverse;
-    text-align:center;
+.menu-btn{
+
+display:block;
+
 }
 
-.hero-text{
-    width:100%;
+nav{
+
+height:75px;
+
 }
 
-.hero-image{
-    width:100%;
-    margin-bottom:40px;
+nav ul{
+
+position:fixed;
+
+top:80px;
+
+left:-100%;
+
+width:100%;
+
+background:#1F2937;
+
+display:flex;
+
+flex-direction:column;
+
+text-align:center;
+
+padding:25px 0;
+
+transition:.5s;
+
 }
 
-.hero-image img{
-    width:250px;
-    height:250px;
+nav ul li{
+
+margin:18px 0;
+
 }
 
-.nav-links{
-    display:none;
-}
+#check:checked~ul{
 
-.hero-text h1{
-    font-size:40px;
+left:0;
+
 }
 
 }
